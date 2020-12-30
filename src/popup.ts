@@ -13,7 +13,9 @@ analyzeButton.addEventListener('click', function () {
             price.textContent = `総額: ${purchaseResult.totalPrice}円`
             const tweetContent = `私のDLsite散財2020\n購入作品数: ${purchaseResult.worksCount}作品\n合計金額: ${purchaseResult.totalPrice}円\n`
             tweetButton.style.display = 'block'
-            tweetButton.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetContent)}&hashtags=${encodeURIComponent('DLsite散財2020')}`
+            const gitHubUrl = 'https://github.com/yt8492/DLsiteSanzai2020'
+
+            tweetButton.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetContent)}&hashtags=${encodeURIComponent('DLsite散財2020')}&url=${encodeURIComponent(gitHubUrl)}`
         })
     })
 })

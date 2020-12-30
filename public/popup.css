@@ -1,0 +1,13 @@
+body {
+    min-width: 200px;
+}
+
+#tweet {
+    width: fit-content;
+    display: none;
+    margin: 4px;
+    padding: 4px;
+    border: #1FA1F1 solid 1px;
+    color: #1FA1F1;
+    text-decoration: none;
+}

@@ -42,11 +42,9 @@ async function read2020Works(page: number): Promise<Array<Work>> {
         }
     })
     const last = works[works.length - 1]
-    const hasNextPage = Array.from(
-        document.getElementsByClassName('page_no')[0]
-            .getElementsByTagName('ul')[0]
-            .children
-    ).find(e => e.textContent == '次へ') != null
+    const ul = document.getElementsByClassName('page_no')[0]
+        .getElementsByTagName('ul')
+    const hasNextPage = ul.length != 0 && Array.from(ul[0].children).find(e => e.textContent == '次へ') != null
     const hasNext =  last.date.startsWith('2020') && hasNextPage
     const filteredWorks = works.filter(w => w.date.startsWith('2020'))
     if (hasNext) {

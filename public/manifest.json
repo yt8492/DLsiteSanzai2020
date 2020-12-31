@@ -6,10 +6,12 @@
     "default_title": "DLsite散財2020",
     "default_popup": "popup.html"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://www.dlsite.com/*"],
-      "js": ["content.js"]
-    }
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "https://www.dlsite.com/maniax/mypage/userbuy/=/type/all/start/all/sort/1/order/1/page"
   ]
 }

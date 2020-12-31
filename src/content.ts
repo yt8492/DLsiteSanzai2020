@@ -9,16 +9,21 @@ type PurchaseResult = {
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    read2020Works(1).then(works => {
-        const result = {
-            worksCount: works.length,
-            totalPrice: works.map(w => w.price).reduce((previousValue, currentValue) => {
-                return previousValue + currentValue
-            }, 0)
-        }
-        console.log(result)
-        sendResponse(result)
-    })
+    console.log(message)
+    if (message == 'analyze') {
+        read2020Works(1).then(works => {
+            const result = {
+                worksCount: works.length,
+                totalPrice: works.map(w => w.price).reduce((previousValue, currentValue) => {
+                    return previousValue + currentValue
+                }, 0)
+            }
+            console.log(result)
+            sendResponse(result)
+        })
+    } else {
+        sendResponse(null)
+    }
     return true
 })
 

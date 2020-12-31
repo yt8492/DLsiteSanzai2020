@@ -12,6 +12,6 @@
     ]
   },
   "permissions": [
-    "https://www.dlsite.com/maniax/mypage/userbuy/=/type/all/start/all/sort/1/order/1/page"
+    "https://www.dlsite.com/maniax/mypage/userbuy/=/type/all/start/all/sort/1/order/1/page/*"
   ]
 }

@@ -20,6 +20,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             }
             console.log(result)
             sendResponse(result)
+        }).catch( e => {
+            console.log(e)
+            sendResponse(null)
         })
     } else {
         sendResponse(null)
@@ -29,7 +32,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 async function read2020Works(page: number): Promise<Array<Work>> {
     const url = `https://www.dlsite.com/maniax/mypage/userbuy/=/type/all/start/all/sort/1/order/1/page/${page}`
-    const result = await (await fetch(url)).text()
+    const result = await (await fetch(url, { mode: 'no-cors' })).text()
     const parser = new DOMParser()
     const document = parser.parseFromString(result, 'text/html')
     const works = Array.from(
